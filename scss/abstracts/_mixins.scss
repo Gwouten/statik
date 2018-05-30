@@ -1,0 +1,41 @@
+// Media query manager
+
+/*
+0 - 600px:   phone
+600 - 900:   tablet - portrait
+900 - 1150:  tablet - landscape
+1150 - 1800: normal styles apply
+1800 + :     big desktop
+
+Breakpoint choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER:
+Base > typography > general layout + grid > page layout > components
+
+*/
+@mixin screen($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } // 600px/16 = 37.5em NOT rem
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (min-width: 71.875em) {
+      @content;
+    }
+  }
+  // @if $breakpoint == big-desktop {
+  //   @media only screen and (min-width: 112.5em) {
+  //     @content;
+  //   }
+  // }
+}

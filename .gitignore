@@ -1,0 +1,5 @@
+#ignore OSX indexing files:
+*.DS_Store
+
+#ignore node_modules folder and all subfolders:
+node_modules/
